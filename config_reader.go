@@ -6,18 +6,18 @@ import (
 )
 
 func enabled() bool {
-	if os.Getenv("ENABLE_HTTP_PPROF") == "1" {
+	if os.Getenv("HTTP_PPROF_SWITCH_ENABLE") == "1" {
 		return true
 	}
 
-	if strings.ToLower(os.Getenv("ENABLE_HTTP_PPROF")) == "true" {
+	if strings.ToLower(os.Getenv("HTTP_PPROF_SWITCH_ENABLE")) == "true" {
 		return true
 	}
 	return false
 }
 
 func host() string {
-	h := os.Getenv("HTTP_PPROF_HOST")
+	h := os.Getenv("HTTP_PPROF_SWITCH_HOST")
 
 	if h == "" {
 		h = "0.0.0.0"
@@ -27,7 +27,7 @@ func host() string {
 }
 
 func port() string {
-	p := os.Getenv("HTTP_PPROF_PORT")
+	p := os.Getenv("HTTP_PPROF_SWITCH_PORT")
 
 	if p == "" {
 		p = "1000"
