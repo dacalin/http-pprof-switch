@@ -93,6 +93,9 @@ import (
 func init() {
 
 	if enabled() {
+		runtime.SetMutexProfileFraction(30)
+		runtime.SetBlockProfileRate(30)
+
 		mux := http.NewServeMux()
 
 		mux.HandleFunc("/debug/pprof/", Index)
